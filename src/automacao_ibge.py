@@ -68,8 +68,14 @@ def executar_automacao():
             pagina.click('strong:has-text("Download")')
 
         download = download_info.value
+
+        # pega o nome real do arquivo baixado automaticamente
+        nome_final = download.suggested_filename
+        print(f"Nome do arquivo detectado: {nome_final}")
+
         # manda arquivo baixado para pasta dados
-        caminho_final = os.path.join("dados", "populacao_60mais_1209.csv")
+        os.makedirs("dados", exist_ok=True)
+        caminho_final = os.path.join("dados", nome_final)
         download.save_as(caminho_final)
         pausa(2.5)
 
@@ -83,4 +89,3 @@ def executar_automacao():
 
 if __name__ == "__main__":
     executar_automacao()
-
