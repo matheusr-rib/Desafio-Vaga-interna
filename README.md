@@ -89,7 +89,7 @@ dados/populacao_60mais_1209.csv
 
 ### 1. Clonar o repositório
 
-```bash
+
 git clone https://github.com/matheusr-rib/Desafio-Vaga-interna.git
 cd Desafio-Vaga-interna/src
 2. Criar e ativar ambiente virtual
