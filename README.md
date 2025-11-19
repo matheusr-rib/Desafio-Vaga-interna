@@ -27,18 +27,17 @@ A automação deve simular o comportamento humano, navegando pela interface, apl
 
 ## Estrutura do Projeto
 
+```
 Desafio-Vaga-interna/
 ├── src/
-│ ├── automacao_ibge.py # Script principal da automação
-│ ├── main.py # Executa a função principal
-│ └── dados/
-│ └── .gitkeep # Mantém a pasta no repositório
-├── requirements.txt # Dependências do projeto
+│   ├── automacao_ibge.py     # Script principal da automação
+│   ├── main.py               # Executa a função principal
+│   └── dados/
+│       └── .gitkeep          # Mantém a pasta no repositório
+├── requirements.txt          # Dependências do projeto
 ├── .gitignore
-└── README.md # Documento de explicação e execução
-
-markdown
-Copiar código
+└── README.md                 # Documento de explicação e execução
+```
 
 ---
 
@@ -47,15 +46,15 @@ Copiar código
 A automação foi construída visando simular uma manipulação manual do DOM com a interação do usuário.  
 Sendo assim, utilizei as seguintes funções visando simular o comportamento humano:
 
-- **`click()`** – Realiza um clique.  
-- **`fill()`** – Preenche texto em um campo de input textual.  
-- **`keyboard.press()`** – Aperta uma tecla do teclado.  
-- **`select_option()`** – Seleciona uma opção em um menu suspenso (`<select>`).
+- **click()** – Realiza um clique.  
+- **fill()** – Preenche texto em um campo de input textual.  
+- **keyboard.press()** – Aperta uma tecla do teclado.  
+- **select_option()** – Seleciona uma opção em um menu suspenso (`<select>`).
 
 Para verificar e aguardar o carregamento de elementos após navegações no site, utilizei:  
 
-- **`wait_for_load_state("networkidle")`** – Aguarda até que todas as requisições de rede estejam concluídas (ou seja, o site terminou de carregar completamente).  
-- **`wait_for_selector()`** – Espera até que o elemento especificado pelo seletor esteja presente e visível na página.
+- **wait_for_load_state("networkidle")** – Aguarda até que todas as requisições de rede estejam concluídas (ou seja, o site terminou de carregar completamente).  
+- **wait_for_selector()** – Espera até que o elemento especificado pelo seletor esteja presente e visível na página.
 
 ---
 
@@ -79,10 +78,9 @@ Para verificar e aguardar o carregamento de elementos após navegações no site
 - Seleciona o formato CSV (BR).  
 - Aguarda o evento de download e salva automaticamente em:
 
+```
 dados/populacao_60mais_1209.csv
-
-yaml
-Copiar código
+```
 
 ### 4. Simulação humana
 
@@ -95,59 +93,91 @@ Copiar código
 
 ### 1. Clonar o repositório
 
-```bash
+```
 git clone https://github.com/matheusr-rib/Desafio-Vaga-interna.git
 cd Desafio-Vaga-interna/src
-2. Criar e ativar ambiente virtual
-bash
-Copiar código
+```
+
+---
+
+### 2. Criar e ativar ambiente virtual
+
+```
 python -m venv venv
-Ativar no Windows:
+```
 
-bash
-Copiar código
+**Ativar no Windows:**
+
+```
 venv\Scripts\activate
-Ativar no Linux/macOS:
+```
 
-bash
-Copiar código
+**Ativar no Linux/macOS:**
+
+```
 source venv/bin/activate
-3. Instalar dependências
-bash
-Copiar código
-pip install -r requirements.txt
-Instalar navegadores necessários:
+```
 
-bash
-Copiar código
+---
+
+### 3. Instalar dependências
+
+```
+pip install -r requirements.txt
+```
+
+**Instalar navegadores necessários:**
+
+```
 playwright install
-4. Executar a automação
-bash
-Copiar código
+```
+
+---
+
+### 4. Executar a automação
+
+```
 python main.py
+```
+
 Após a execução, o arquivo será salvo automaticamente em:
 
-bash
-Copiar código
+```
 src/dados/populacao_60mais_1209.csv
-Dependências Utilizadas
-Arquivo requirements.txt:
+```
 
-ini
-Copiar código
+---
+
+## Dependências Utilizadas
+
+**Arquivo `requirements.txt`:**
+
+```
 playwright==1.56.0
-Principais Desafios Encontrados
-Desafio	Solução aplicada
-O site possui elementos HTML idênticos	Foram utilizados seletores compostos com :has() e :has-text() para garantir que o elemento correto fosse acessado.
-O site pode apresentar demoras no carregamento	Foram utilizadas funções de espera explícitas (wait_for_selector, wait_for_load_state) para garantir o carregamento dos elementos antes de avançar para o próximo passo.
+```
 
-Resultado Final
-A automação acessa a tabela 1209
+---
 
-Filtra “60 anos ou mais” por UF
+## Principais Desafios Encontrados
 
-Baixa o arquivo CSV e o salva em:
+**1. Elementos HTML idênticos**  
+Foram utilizados seletores compostos com `:has()` e `:has-text()` para garantir que o elemento correto fosse acessado.  
 
-bash
-Copiar código
+**2. Carregamento lento de elementos**  
+O site pode apresentar demoras no carregamento. Foram utilizadas funções de espera explícitas (`wait_for_selector`, `wait_for_load_state`) para garantir que os elementos estivessem prontos antes de avançar.
+
+---
+
+## Resultado Final
+
+- A automação acessa a tabela **1209**  
+- Filtra “60 anos ou mais” por UF  
+- Baixa o arquivo CSV e o salva em:
+
+```
 dados/populacao_60mais_1209.csv
+```
+
+---
+
+**Projeto desenvolvido para o processo seletivo – Desafio Técnico de Automação RPA (IBGE/SIDRA).**
