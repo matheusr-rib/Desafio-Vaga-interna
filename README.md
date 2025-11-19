@@ -37,9 +37,6 @@ Desafio-Vaga-interna/
 ├── .gitignore
 └── README.md # Documento de explicação e execução
 
-markdown
-Copiar código
-
 ---
 
 ## Lógica e Estratégia Adotada
@@ -81,9 +78,6 @@ Para verificar e aguardar o carregamento de elementos após navegações no site
 
 dados/populacao_60mais_1209.csv
 
-yaml
-Copiar código
-
 ### 4. Simulação humana
 
 - Foram adicionadas pausas (`time.sleep`) entre ações para simular tempo de leitura, carregamento e interação humana realista.  
@@ -99,55 +93,39 @@ Copiar código
 git clone https://github.com/matheusr-rib/Desafio-Vaga-interna.git
 cd Desafio-Vaga-interna/src
 2. Criar e ativar ambiente virtual
-bash
-Copiar código
 python -m venv venv
 Ativar no Windows:
 
-bash
-Copiar código
 venv\Scripts\activate
 Ativar no Linux/macOS:
 
-bash
-Copiar código
+
 source venv/bin/activate
 3. Instalar dependências
-bash
-Copiar código
+
 pip install -r requirements.txt
 Instalar navegadores necessários:
 
-bash
-Copiar código
 playwright install
 4. Executar a automação
-bash
-Copiar código
+
 python main.py
 Após a execução, o arquivo será salvo automaticamente em:
-
-bash
-Copiar código
 src/dados/populacao_60mais_1209.csv
 Dependências Utilizadas
 Arquivo requirements.txt:
 
-ini
-Copiar código
 playwright==1.56.0
+
 Principais Desafios Encontrados
-Desafio	Solução aplicada
+
 O site possui elementos HTML idênticos	Foram utilizados seletores compostos com :has() e :has-text() para garantir que o elemento correto fosse acessado.
 O site pode apresentar demoras no carregamento	Foram utilizadas funções de espera explícitas (wait_for_selector, wait_for_load_state) para garantir o carregamento dos elementos antes de avançar para o próximo passo.
 
 Resultado Final
-A automação acessa a tabela 1209
 
+A automação acessa a tabela 1209
 Filtra “60 anos ou mais” por UF
 
 Baixa o arquivo CSV e o salva em:
-
-bash
-Copiar código
 dados/populacao_60mais_1209.csv
