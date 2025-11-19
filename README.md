@@ -89,9 +89,10 @@ dados/populacao_60mais_1209.csv
 
 ### 1. Clonar o repositório
 
-
+```bash
 git clone https://github.com/matheusr-rib/Desafio-Vaga-interna.git
 cd Desafio-Vaga-interna/src
+
 
 
 2. Criar e ativar ambiente virtual
@@ -121,12 +122,16 @@ playwright==1.56.0
 
 Principais Desafios Encontrados
 
-O site possui elementos HTML idênticos	Foram utilizados seletores compostos com :has() e :has-text() para garantir que o elemento correto fosse acessado.
-O site pode apresentar demoras no carregamento	Foram utilizadas funções de espera explícitas (wait_for_selector, wait_for_load_state) para garantir o carregamento dos elementos antes de avançar para o próximo passo.
+1. Elementos HTML idênticos
+Foram utilizados seletores compostos com :has() e :has-text() para garantir que o elemento correto fosse acessado.
+
+2. Carregamento lento de elementos
+O site pode apresentar demoras no carregamento. Foram utilizadas funções de espera explícitas (wait_for_selector, wait_for_load_state) para garantir que os elementos estivessem prontos antes de avançar.
 
 Resultado Final
 
 A automação acessa a tabela 1209
+
 Filtra “60 anos ou mais” por UF
 
 Baixa o arquivo CSV e o salva em:
