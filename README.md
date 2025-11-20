@@ -125,12 +125,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**Instalar navegadores necessários:**
-
-```
-playwright install
-```
-
 ---
 
 ### 4. Executar a automação
