@@ -95,7 +95,6 @@ dados/populacao_60mais_1209.csv
 
 ```
 git clone https://github.com/matheusr-rib/Desafio-Vaga-interna.git
-cd Desafio-Vaga-interna/src
 ```
 
 ---
@@ -137,6 +136,7 @@ playwright install
 ### 4. Executar a automação
 
 ```
+cd src
 python main.py
 ```
 
